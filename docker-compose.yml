@@ -50,7 +50,7 @@ services:
       SENDY_PROTOCOL: ${SENDY_PROTOCOL}
       SENDY_FQDN: ${SENDY_FQDN}
     ports:
-      - 8080:80
+      - 3001:80
 
   # Load Balancer: HAProxy
   # load-balancer:
