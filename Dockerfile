@@ -10,12 +10,12 @@
 # Run:
 # $ docker run --rm -d --env-file sendy.env sendy:latest
 
-FROM php:8.0-apache as sendy
+FROM php:8.0-apache AS sendy
 
 ARG SENDY_VER=6.1.3
 ARG ARTIFACT_DIR=6.1.3
 
-ENV SENDY_VERSION ${SENDY_VER}
+ENV SENDY_VERSION=${SENDY_VER}
 
 RUN apt -qq update && apt -qq upgrade -y \
   # Install unzip cron
@@ -68,7 +68,7 @@ CMD ["apache2-foreground"]
 #######################
 # XDEBUG Installation
 #######################
-FROM sendy as debug
+FROM sendy AS debug
 # Install xdebug extension
 RUN pecl channel-update pecl.php.net \
   && pecl install xdebug \
